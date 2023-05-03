@@ -15,3 +15,14 @@ SELECT first_name, last_name FROM employees WHERE first_name = 'Irena' OR first_
 SELECT first_name, last_name FROM employees
 WHERE last_name LIKE 'E%'
    OR last_name LIKE '%E';
+
+# FUNCTIONS
+
+SELECT CONCAT(first_name, ' ', last_name) FROM employees WHERE first_name = 'Maya';
+
+SELECT DAYOFMONTH(hire_date) FROM employees WHERE first_name = 'Maya';
+
+SELECT DATEDIFF(NOW(), hire_date)/365 FROM employees LIMIT 50;
+
+SELECT MINUTE(NOW());
+SELECT SECOND(NOW());

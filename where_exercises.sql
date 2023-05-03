@@ -15,3 +15,4 @@ SELECT first_name, last_name FROM employees WHERE first_name = 'Irena' OR first_
 SELECT first_name, last_name FROM employees
                              WHERE last_name LIKE 'E%'
                                 OR last_name LIKE '%E';
+
