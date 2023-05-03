@@ -24,5 +24,5 @@ SELECT first_name, last_name, birth_date FROM employees WHERE year(birth_date) B
 SELECT first_name, last_name, birth_date, hire_date, DATEDIFF(NOW(), hire_date)/365 FROM employees WHERE year(birth_date) BETWEEN 1900 AND 2000
                                                           AND month(birth_date) = 12
                                                           AND day(birth_date) = 25 AND year(hire_date) between 1990 AND 2000
-                                                        ORDER BY hire_date DESC;
+                                                        ORDER BY birth_date, hire_date DESC;
 
