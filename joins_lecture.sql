@@ -14,7 +14,9 @@ CREATE TABLE users (
 
 USE employees;
 
+# BASIC JOIN (AKA INNER JOIN)
 # selecting data from two tables, and joining them
 # whenever theres a match from emp_no from employees, and emp_no from salaries, it'll join
-SELECT employees.last_name AS name, salaries.salary AS salary FROM employees JOIN
+SELECT CONCAT(employees.first_name, ' ', employees.last_name) AS name, salaries.salary AS salary FROM employees JOIN
     salaries ON employees.emp_no = salaries.emp_no;
+
