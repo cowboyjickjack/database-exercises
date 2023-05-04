@@ -38,10 +38,10 @@ SELECT users.name AS user, roles.name AS role
 
 SELECT users.name AS user_name, roles.name AS role_name
 FROM users
-         LEFT JOIN roles ON users.role_id = roles.id;
+     LEFT JOIN roles ON users.role_id = roles.id;
 
 # RIGHT JOIN
 
 SELECT users.name AS user_name, roles.name AS role_name
 FROM users
-         RIGHT JOIN roles ON users.role_id = roles.id;
+     RIGHT JOIN roles ON users.role_id = roles.id;
