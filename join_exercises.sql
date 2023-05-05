@@ -86,3 +86,5 @@ SELECT dept_name AS 'Department Name',
     WHERE s.to_date LIKE '9%'
     AND dm.to_date LIKE '9%'
     ORDER BY dept_name;
+
+# BONUS: Find the names of all current employees, their department names, and their current manager names.
