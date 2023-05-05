@@ -78,8 +78,7 @@ SELECT title, COUNT(title) AS Total FROM titles t
 # Find the current salary of all current managers
 SELECT dept_name AS 'Department Name',
        CONCAT(first_name, ' ', last_name) AS 'Department Manager',
-       salary AS Salary
-    FROM departments d
+       salary AS Salary FROM departments d
     JOIN dept_manager dm on d.dept_no = dm.dept_no # join departments to departments manager
     JOIN employees e on e.emp_no = dm.emp_no # join employees to department manager
     JOIN salaries s on e.emp_no = s.emp_no # join employees to salaries
@@ -88,3 +87,13 @@ SELECT dept_name AS 'Department Name',
     ORDER BY dept_name;
 
 # BONUS: Find the names of all current employees, their department names, and their current manager names.
+SELECT  CONCAT(e.first_name, ' ', e.last_name) AS Employee,
+        dept_name AS Department,
+        CONCAT(e2.first_name, ' ', e2.last_name) AS Manager
+    FROM employees e
+        JOIN dept_emp de on e.emp_no = de.emp_no
+        JOIN departments d on d.dept_no = de.emp_no
+        JOIN dept_manager dm on d.dept_no = dm.dept_no
+        JOIN employees e2 ON e2.emp_no = dm.emp_no
+    WHERE de.to_date LIKE '9%'
+        AND dm.to_date LIKE '9%';
