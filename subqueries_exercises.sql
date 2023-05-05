@@ -17,8 +17,7 @@ SELECT first_name FROM employees WHERE first_name = 'Aamod';
 SELECT title
     FROM titles
     WHERE emp_no
-              IN (SELECT emp_no FROM employees WHERE first_name
-                         IN (SELECT first_name FROM employees WHERE first_name = 'Aamod'));
+              IN (SELECT emp_no FROM employees WHERE first_name = 'Aamod');
 
 # Find all the current department managers that are female.
 
