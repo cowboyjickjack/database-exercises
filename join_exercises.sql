@@ -57,7 +57,7 @@ SELECT dept_name AS 'Department Name', CONCAT(first_name, ' ', last_name) AS 'De
         WHERE to_date LIKE '9%'
         ORDER BY dept_name;
 
-# Departments currently managed by women
+# Find the name of all departments currently managed by women
 SELECT dept_name AS 'Department Name', CONCAT(first_name, ' ', last_name) AS 'Department Manager'
 FROM departments d
          JOIN dept_manager dm on d.dept_no = dm.dept_no
@@ -74,3 +74,15 @@ SELECT title, COUNT(title) AS Total FROM titles t
     AND t.to_date LIKE '9%'
     AND de.to_date LIKE '9%'
     GROUP BY title;
+
+# Find the current salary of all current managers
+SELECT dept_name AS 'Department Name',
+       CONCAT(first_name, ' ', last_name) AS 'Department Manager',
+       salary AS Salary
+    FROM departments d
+    JOIN dept_manager dm on d.dept_no = dm.dept_no # join departments to departments manager
+    JOIN employees e on e.emp_no = dm.emp_no # join employees to department manager
+    JOIN salaries s on e.emp_no = s.emp_no # join employees to salaries
+    WHERE s.to_date LIKE '9%'
+    AND dm.to_date LIKE '9%'
+    ORDER BY dept_name;
